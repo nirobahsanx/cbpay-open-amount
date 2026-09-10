@@ -117,7 +117,7 @@ async function createPayment() {
 
   try {
 
-    const response = await fetch("/create-payment", {
+    const response = await fetch("/api/create-checkout", {
       method: "POST",
 
       headers: {
@@ -156,3 +156,13 @@ async function createPayment() {
 
     message.innerText =
       "Payment could not be created: "
+    + error.message;
+
+    button.disabled = false;
+    button.innerText = "Continue to Payment";
+  }
+}
+
+</script>
+</body>
+</html>
