@@ -124,7 +124,7 @@ app.post("/api/create-checkout", async (req, res) => {
 
       description,
 
-      country: "US",
+      
 
       expires_in: 86400,
 
