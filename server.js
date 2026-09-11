@@ -748,7 +748,27 @@ app.post(
   }
 );
 
+app.get("/api/cbpay-account-check", async (req, res) => {
+  try {
+    const data = await cbpayRequest("/v1/me", {
+      method: "GET",
+    });
 
+    res.json({
+      id: data.id,
+      org_id: data.org_id,
+      type: data.type,
+      status: data.status,
+      kyc_status: data.kyc_status,
+      country: data.country,
+    });
+
+  } catch (error) {
+    res.status(error.status || 500).json({
+      error: error.data || error.message,
+    });
+  }
+});
 /* =========================
    HEALTH CHECK
 ========================= */
