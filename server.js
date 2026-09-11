@@ -138,7 +138,11 @@ app.post("/api/create-checkout", async (req, res) => {
         body: JSON.stringify(payload),
       }
     );
-
+console.log("CBPay checkout created:", {
+  payin_id: data.payin_id || data.id || data?.data?.payin_id || data?.data?.id,
+  account_id: data.account_id || data?.data?.account_id,
+  checkout_url: data.checkout_url || data?.data?.checkout_url,
+});
     const checkoutUrl =
       data.checkout_url ||
       data.payment_url ||
