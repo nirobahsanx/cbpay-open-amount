@@ -77,7 +77,7 @@ app.post("/api/create-checkout", async (req, res) => {
     }
 
     if (!r.ok) {
-      return res.status(r.status).json({
+      
             return res.status(r.status).json({
       error: "CBPay rejected the request",
       details: data,
